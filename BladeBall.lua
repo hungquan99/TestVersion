@@ -679,7 +679,7 @@ local Window = Fluent:CreateWindow({
     Size = UDim2.fromOffset(580, 460),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Darker",
-    MinimizeKey = Enum.KeyCode.P -- Used when theres no MinimizeKeybind
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
@@ -735,8 +735,8 @@ SaveManager:SetIgnoreIndexes({})
 -- use case for doing it this way:
 -- a script hub could have themes in a global folder
 -- and game configs in a separate folder per game
-InterfaceManager:SetFolder("Hung Hub")
-SaveManager:SetFolder("Hung Hub/Blade Ball")
+InterfaceManager:SetFolder("Skull Hub")
+SaveManager:SetFolder("Skull Hub/Blox Fruits")
 
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 
@@ -744,7 +744,7 @@ InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 Window:SelectTab(1)
 
 Fluent:Notify({
-    Title = "Hung Hub",
+    Title = "Skull Hub",
     Content = "The script has been loaded successfully!",
     Duration = 5
 })
