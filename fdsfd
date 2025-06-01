@@ -1,13 +1,14 @@
-
 -- ROBLOX_SCRIPT_FROM_URL_ONLY
 
-local source = debug.getinfo(1, "S").source
+local info = debug.getinfo(1, "S")
+local source = tostring(info and info.source or "")
 
--- Detect if executed directly (from clipboard/paste) instead of from a URL
-if not tostring(source):find("http") then
+-- If the script was loaded via loadstring(game:HttpGet(...))(),
+-- the source will usually be like: [string "HttpGet"] or similar,
+-- NOT like: [string "print('hello')"] or [string "line 1"]
+if not source:lower():find("httpget") and not source:lower():find("loadstring") then
     return warn("This script must be run using loadstring(game:HttpGet('...'))(). Direct execution is blocked.")
 end
 
--- Script logic continues here
-print("✅ Loaded via loadstring from a URL!")
--- your actual script...
+print("✅ Script loaded successfully from URL!")
+-- your actual script code here
