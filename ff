@@ -1,12 +1,12 @@
--- Anti-direct-execution protection
-local success, info = pcall(function()
-    error("", 2)
-end)
+-- ROBLOX_SCRIPT_FROM_URL_ONLY
 
-if not tostring(info):find("loadstring") then
+local source = debug.getinfo(1, "S").source
+
+-- Detect if executed directly (from clipboard/paste) instead of from a URL
+if not tostring(source):find("http") then
     return warn("This script must be run using loadstring(game:HttpGet('...'))(). Direct execution is blocked.")
 end
 
--- Real script logic below
-print("✅ Script executed correctly through loadstring!")
--- Add your actual functionality here...
+-- Script logic continues here
+print("✅ Loaded via loadstring from a URL!")
+-- your actual script...
