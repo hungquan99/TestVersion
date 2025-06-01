@@ -1,0 +1,12 @@
+-- Anti-direct-execution protection
+local success, info = pcall(function()
+    error("", 2)
+end)
+
+if not tostring(info):find("loadstring") then
+    return warn("This script must be run using loadstring(game:HttpGet('...'))(). Direct execution is blocked.")
+end
+
+-- Real script logic below
+print("✅ Script executed correctly through loadstring!")
+-- Add your actual functionality here...
